@@ -1,4 +1,4 @@
-{{ $svc := .Values.frigateServiceTCP }}
+{{ $svc := .Values.FrigateServiceUI }}
 {{ $ports := list }}
 {{ $ports = mustAppend $ports (dict "name" "mainfrigate" "port" $svc.port "nodePort" $svc.port "targetPort" "mainfrigate") }}
 {{ $params := . }}
