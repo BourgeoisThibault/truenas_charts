@@ -26,6 +26,10 @@ portals:
 
 questions:
 
+  - variable: testinvarffgrg
+    label: "trgtrgtrg gtrgrthguih grhigrtihg ghrtg hrithg oi sgrhetoighzio hgz zogtoihz zo h zpnzo hernor op znoipern hoire oinzoir hnio noe zoze hre."
+    group: "Frigate Configuration"
+
   # Port configuration
   - variable: frigateServiceTCP
     label: "Configure Frigate TCP Service"
@@ -88,31 +92,8 @@ questions:
                 schema:
                   type: boolean
                   default: false
-    # Volumes
-  - variable: volumes
-    label: "Volumes"
-    group: "Storage"
-    schema:
-      type: list
-      items:
-        - variable: volume
-          label: "Volume"
-          schema:
-            type: dict
-            $ref:
-              - "normalize/ixVolume"
-            attrs:
-              - variable: mountPath
-                label: "Mount Path"
-                description: "Path where the volume will be mounted inside the pod"
-                schema:
-                  type: path
-                  required: true
-              - variable: datasetName
-                label: "Dataset Name"
-                schema:
-                  type: string
-                  required: true
+
+  
   
   - variable: enableResourceLimits
     label: "Enable Pod resource limits"
