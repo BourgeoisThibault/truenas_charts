@@ -15,7 +15,7 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-frigateServiceTCP.port"
+      - "$variable-FrigateServiceUI.port"
     path: "/web"
 
 questions:
