@@ -27,10 +27,8 @@ spec:
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}_frigate
-          {{- $values := . -}}
-          {{- include "common.schema.validateKeys" (dict "values" $values "checkKeys" (list "frigaterepository" "frigatetag" "frigatepullPolicy")) -}}
-          image: "{{ $values.frigaterepository }}:{{ $values.frigatetag }}"
-          imagePullPolicy: {{ $values.frigatepullPolicy }}
+          image: "{{ .Values.frigate.image.repository }}:{{ .Values.frigate.image.tag }}"
+          imagePullPolicy: {{ .Values.frigate.image.pullPolicy }}
           volumeMounts:
             {{ range $index, $hostPathConfiguration := .Values.FRIGATEextraAppVolumeMounts }}
             - name: extrappvolume-{{ $index }}
