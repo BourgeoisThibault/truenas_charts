@@ -27,10 +27,8 @@ spec:
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}_mqtt
-          {{- $values := . -}}
-          {{- include "common.schema.validateKeys" (dict "values" $values "checkKeys" (list "mqttrepository" "mqtttag" "mqttpullPolicy")) -}}
-          image: "{{ $values.mqttrepository }}:{{ $values.mqtttag }}"
-          imagePullPolicy: {{ $values.mqttpullPolicy }}
+          image: "{{ .Values.mqtt.image.repository }}:{{ .Values.mqtt.image.tag }}"
+          imagePullPolicy: {{ .Values.mqtt.image.pullPolicy }}
           volumeMounts:
             {{ range $index, $hostPathConfiguration := .Values.MQTTextraAppVolumeMounts }}
             - name: extrappvolume-{{ $index }}
