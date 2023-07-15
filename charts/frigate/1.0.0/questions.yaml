@@ -26,10 +26,6 @@ portals:
 
 questions:
 
-  - variable: testinvarffgrg
-    label: "trgtrgtrg gtrgrthguih grhigrtihg ghrtg hrithg oi sgrhetoighzio hgz zogtoihz zo h zpnzo hernor op znoipern hoire oinzoir hnio noe zoze hre."
-    group: "Frigate Configuration"
-
   # Port configuration
   - variable: frigateServiceTCP
     label: "Configure Frigate TCP Service"
