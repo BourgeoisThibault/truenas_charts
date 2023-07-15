@@ -1,14 +1,8 @@
 groups:
+  - name: "MQTT Configuration"
+    description: "Configure mqtt variables"
   - name: "Frigate Configuration"
-    description: "Configure frigate deployment"
-  - name: "Networking"
-    description: "Configure networking for container"
-  - name: "Storage"
-    description: "Persist and share data that is separate from the lifecycle of the container"
-  - name: "Resource Reservation"
-    description: "Specify resources to be allocated to workload"
-  - name: "Resource Limits"
-    description: "Set CPU/memory limits for Kubernetes Pod"
+    description: "Configure frigate variables"
   - name: "Timezone"
     description: "Configure networking for container"
   - name: "Scaling/Upgrade Policy"
@@ -26,10 +20,62 @@ portals:
 
 questions:
 
+  - variable: MqttServiceRTMP
+    label: "Configure MQTT RTMP Service"
+    group: "MQTT Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: port
+          label: "Port to expose for MQTT RTMP"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 10002
+
+
+  - variable: MQTTextraAppVolumeMounts
+    label: "MQTT Extra Host Path Volumes"
+    group: "MQTT Configuration"
+    schema:
+      type: list
+      items:
+        - variable: extraAppVolume
+          label: "MQTT Host Path Volume"
+          description: "Add an extra host path volume for frigate application"
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: "Mount Path in Pod"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  required: true
+              - variable: hostPath
+                label: "Host Path"
+                description: "Host path"
+                schema:
+                  type: hostpath
+                  required: true
+                  $ref:
+                    - "validations/lockedHostPath"
+              - variable: readOnly
+                label: "Read Only"
+                description: "Mount hostpath in read-only mode"
+                schema:
+                  type: boolean
+                  default: false
+
+
+
+################################""
+
   # Port configuration
-  - variable: frigateServiceTCP
+  - variable: FrigateServiceUI
     label: "Configure Frigate TCP Service"
-    group: "Networking"
+    group: "Frigate Configuration"
     schema:
       type: dict
       attrs:
@@ -41,24 +87,9 @@ questions:
             max: 65535
             default: 10001
 
-  
-  - variable: frigateServiceRTMP
-    label: "Configure Frigate RTMP Service"
-    group: "Networking"
-    schema:
-      type: dict
-      attrs:
-        - variable: port
-          label: "Port to expose for Frigate RTMP"
-          schema:
-            type: int
-            min: 9000
-            max: 65535
-            default: 10002
-
-  - variable: extraAppVolumeMounts
+  - variable: FRIGATEextraAppVolumeMounts
     label: "Frigate Extra Host Path Volumes"
-    group: "Storage"
+    group: "Frigate Configuration"
     schema:
       type: list
       items:
@@ -88,34 +119,7 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
   
-  
-  - variable: enableResourceLimits
-    label: "Enable Pod resource limits"
-    group: "Resource Limits"
-    schema:
-      type: boolean
-      default: false
-  - variable: cpuLimit
-    label: "CPU Limit"
-    description: "CPU resource limit allow  plain integer values with suffix m(milli) e.g 1000m, 100."
-    group: "Resource Limits"
-    schema:
-      type: string
-      show_if: [["enableResourceLimits", "=", true]]
-      valid_chars: "^\\d+(?:\\.\\d+(?!.*m$)|m?$)"
-      default: "4000m"
-  - variable: memLimit
-    label: "Memory Limit"
-    group: "Resource Limits"
-    description: "Memory limits is specified by number of bytes. Followed by quantity suffix like E,P,T,G,M,k and Ei,Pi,Ti,Mi,Gi,Ki can also be used. e.g 129e6, 129M,  128974848000m, 123Mi"
-    schema:
-      type: string
-      show_if: [["enableResourceLimits", "=", true]]
-      valid_chars: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
-      default: "8Gi"
-
   - variable: timezone
     label: "Frigate container timezone"
     group: "Timezone"

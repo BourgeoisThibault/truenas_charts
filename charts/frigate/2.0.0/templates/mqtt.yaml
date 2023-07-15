@@ -1,7 +1,17 @@
 {{ include "common.storage.hostPathValidate" .Values }}
-{{ include "common.deployment.common_config" . | nindent 0 }}
-spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
-  template: {{ include "common.deployment.pod.metadata" . | nindent 4 }}
+apiVersion: {{ template "common.capabilities.deployment.apiVersion" . }}
+kind: Service
+spec: 
+  replicas: {{ (default 1 .Values.replicas) }}
+  strategy:
+    type: {{ (default "Recreate" .Values.updateStrategy ) }}
+  selector:
+    matchLabels: {{ include "common.labels.selectorLabels" . | nindent 4 }}
+  template: 
+    metadata:
+      name: {{ template "common.names.fullname" . }}
+      labels: {{ include "common.labels.selectorLabels" . | nindent 4 }}
+      annotations: {{ include "common.annotations" . | nindent 4 }}
     spec:
       hostNetwork: {{ .Values.hostNetwork }}
     {{- if .Values.hostNetwork }}
@@ -16,11 +26,11 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
         {{- end }}
       {{- end }}
       containers:
-        - name: {{ .Chart.Name }}
-          {{ include "common.resources.limitation" . | nindent 10 }}
-          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
+        - name: {{ .Chart.Name }}_mqtt
+          image: "{{ $values.repository }}{{- if hasKey $values "postfix" -}}-{{ $values.postfix }}{{- end -}}:{{ $values.tag }}"
+          imagePullPolicy: {{ $values.pullPolicy }}
           volumeMounts:
-            {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
+            {{ range $index, $hostPathConfiguration := .Values.MQTTextraAppVolumeMounts }}
             - name: extrappvolume-{{ $index }}
               mountPath: {{ $hostPathConfiguration.mountPath }}
               {{ if $hostPathConfiguration.readOnly }}
@@ -30,9 +40,9 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           ports:
           - name: mainfrigate
             protocol: TCP
-            containerPort: 5000
+            containerPort: 1883
           {{- if .Values.hostNetwork }}
-            hostPort: {{ .Values.frigateServiceTCP.port }}
+            hostPort: {{ .Values.MqttServiceRTMP.port }}
           {{- else }}
             hostPort: null
           {{- end }}
@@ -50,7 +60,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
           readinessProbe:
             tcpSocket:
-              port: 5000
+              port: 1883
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
@@ -58,7 +68,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             successThreshold: 2
           livenessProbe:
             tcpSocket:
-              port: 5000
+              port: 1883
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
@@ -66,7 +76,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             successThreshold: 1
           startupProbe:
             tcpSocket:
-              port: 5000
+              port: 1883
             initialDelaySeconds: 10
             periodSeconds: 5
             timeoutSeconds: 2
@@ -74,7 +84,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             successThreshold: 1
       {{ include "common.networking.dnsConfiguration" .Values | nindent 6 }}
       volumes:
-        {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
+        {{ range $index, $hostPathConfiguration := .Values.MQTTextraAppVolumeMounts }}
         - name: extrappvolume-{{ $index }}
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
