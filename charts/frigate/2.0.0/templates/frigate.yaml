@@ -31,11 +31,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           - name: mainfrigate
             protocol: TCP
             containerPort: 5000
-          {{- if .Values.hostNetwork }}
             hostPort: {{ .Values.FrigateServiceUI.port }}
-          {{- else }}
-            hostPort: null
-          {{- end }}
           env:
             - name: KUBE_NAMESPACE
               valueFrom:
