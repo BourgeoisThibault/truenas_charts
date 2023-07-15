@@ -1,6 +1,6 @@
 {
     "charts": {
-        "plex": {
+        "frigate": {
             "app_readme": "<h1>Frigate</h1>\n<p>Frigate chart is a chart designed to deploy frigate in a TrueNAS SCALE kubernetes cluster.</p>",
             "categories": [
                 "nvr"
