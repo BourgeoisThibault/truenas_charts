@@ -5,6 +5,8 @@ groups:
     description: "Configure networking for container"
   - name: "Storage"
     description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "Timezone"
+    description: "Configure networking for container"
   - name: "Workload Details"
     description: "Configure how workload should be deployed"
   - name: "Scaling/Upgrade Policy"
@@ -27,15 +29,6 @@ portals:
     path: "/web"
 
 questions:
-  - variable: timezone
-    label: "Frigate container timezone"
-    group: "Frigate Configuration"
-    schema:
-      type: string
-      default: "Etc/UTC"
-      $ref:
-        - "definitions/timezone"
-
   # Update strategy
   - variable: updateStrategy
     description: "Upgrade Policy"
@@ -61,9 +54,9 @@ questions:
           label: "Port to expose for Frigate UI"
           schema:
             type: int
-            min: 5000
+            min: 9000
             max: 65535
-            default: 5000
+            default: 10001
 
   - variable: extraAppVolumeMounts
     label: "Frigate Extra Host Path Volumes"
@@ -122,3 +115,12 @@ questions:
       show_if: [["enableResourceLimits", "=", true]]
       valid_chars: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
       default: "8Gi"
+
+  - variable: timezone
+    label: "Frigate container timezone"
+    group: "Timezone"
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"

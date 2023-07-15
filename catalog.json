@@ -8,20 +8,18 @@
             "description": "Frigate NVR",
             "healthy": true,
             "healthy_error": null,
-            "home": "https://plex.tv/",
-            "location": "/__w/charts/charts/charts/plex",
             "latest_version": "1.0.0",
             "latest_app_version": "0.12.1",
             "latest_human_version": "0.12.1",
-            "last_update": "2023-07-15 09:53:31",
+            "last_update": "2023-07-15 20:00:00",
             "name": "frigate",
             "recommended": false,
             "title": "Frigate",
             "maintainers": [
                 {
-                    "name": "truenas",
-                    "url": "https://www.truenas.com/",
-                    "email": "dev@ixsystems.com"
+                    "name": "tibhome",
+                    "url": "https://www.tibhome.fr/",
+                    "email": "trash@tibhome.fr"
                 }
             ],
             "tags": [
@@ -33,8 +31,7 @@
                 "https://frigate.video/images/ui.jpg"
             ],
             "sources": [
-                "https://hub.docker.com/r/plexinc/pms-docker/",
-                "https://github.com/k8s-at-home/charts/tree/master/charts/plex"
+                "https://github.com/blakeblackshear/frigate"
             ],
             "icon_url": "https://repository-images.githubusercontent.com/167694194/7e73b000-3ab3-11eb-9a3a-bb923650172b"
         }

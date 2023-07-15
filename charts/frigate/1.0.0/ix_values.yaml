@@ -2,3 +2,11 @@ image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/blakeblackshear/frigate
   tag: 0.12.1
+
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
