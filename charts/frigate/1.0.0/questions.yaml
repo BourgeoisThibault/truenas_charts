@@ -11,8 +11,6 @@ groups:
     description: "Set CPU/memory limits for Kubernetes Pod"
   - name: "Timezone"
     description: "Configure networking for container"
-  - name: "Restart Policy"
-    description: "Configure when pod should be restarted in case of failure"
   - name: "Scaling/Upgrade Policy"
     description: "Configure how pods are replaced when configuration is upgraded"
 
@@ -42,6 +40,21 @@ questions:
             min: 9000
             max: 65535
             default: 10001
+
+  
+  - variable: frigateServiceRTMP
+    label: "Configure Frigate RTMP Service"
+    group: "Networking"
+    schema:
+      type: dict
+      attrs:
+        - variable: port
+          label: "Port to expose for Frigate RTMP"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 10002
 
   - variable: extraAppVolumeMounts
     label: "Frigate Extra Host Path Volumes"
@@ -75,22 +88,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
-  # Restart Policy
-  - variable: jobRestartPolicy
-    description: "Restart Policy for Job"
-    label: "Restart Policy"
-    group: "Restart Policy"
-    schema:
-      hidden: true
-      type: string
-      default: "OnFailure"
-      show_if: [["workloadType", "!=", "Deployment"]]
-      enum:
-        - value: "OnFailure"
-          description: "Only restart job if it fails"
-        - value: "Never"
-          description: "Never restart job even if it fails"
   
   - variable: enableResourceLimits
     label: "Enable Pod resource limits"
