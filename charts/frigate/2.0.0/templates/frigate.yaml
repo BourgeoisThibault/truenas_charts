@@ -16,7 +16,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
         {{- end }}
       {{- end }}
       containers:
-        - name: {{ .Chart.Name }}-frigate
+        - name: {{ .Chart.Name }}
           image: "{{ .Values.frigate.image.repository }}:{{ .Values.frigate.image.tag }}"
           imagePullPolicy: {{ .Values.frigate.image.pullPolicy }}
           volumeMounts:
