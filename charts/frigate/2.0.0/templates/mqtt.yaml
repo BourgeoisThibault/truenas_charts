@@ -27,6 +27,7 @@ spec:
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}_mqtt
+          {{- $values := . -}}
           image: "{{ $values.mqtt.image.repository }}:{{ $values.mqtt.image.tag }}"
           imagePullPolicy: {{ $values.mqtt.image.pullPolicy }}
           volumeMounts:

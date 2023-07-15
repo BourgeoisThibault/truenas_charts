@@ -27,6 +27,7 @@ spec:
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}_frigate
+          {{- $values := . -}}
           image: "{{ $values.frigate.image.repository }}:{{ $values.frigate.image.tag }}"
           imagePullPolicy: {{ $values.frigate.image.pullPolicy }}
           volumeMounts:
