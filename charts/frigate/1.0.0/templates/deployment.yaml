@@ -18,12 +18,8 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
       containers:
         - name: {{ .Chart.Name }}
           {{ include "common.resources.limitation" . | nindent 10 }}
-          {{ if .Values.enablePlexPass }}
-            {{ include "common.containers.imageConfig" .Values.plexpassImage | nindent 10 }}
-          {{ else }}
-            {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
-          {{ end }}
-          volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
+          volumeMounts:
             {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
             - name: extrappvolume-{{ $index }}
               mountPath: {{ $hostPathConfiguration.mountPath }}
