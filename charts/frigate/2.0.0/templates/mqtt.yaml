@@ -1,17 +1,7 @@
 {{ include "common.storage.hostPathValidate" .Values }}
-apiVersion: {{ template "common.capabilities.deployment.apiVersion" . }}
-kind: Service
-spec: 
-  replicas: {{ (default 1 .Values.replicas) }}
-  strategy:
-    type: {{ (default "Recreate" .Values.updateStrategy ) }}
-  selector:
-    matchLabels: {{ include "common.labels.selectorLabels" . | nindent 4 }}
-  template: 
-    metadata:
-      name: {{ template "common.names.fullname" . }}
-      labels: {{ include "common.labels.selectorLabels" . | nindent 4 }}
-      annotations: {{ include "common.annotations" . | nindent 4 }}
+{{ include "common.deployment.common_config" . | nindent 0 }}
+spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
+  template: {{ include "common.deployment.pod.metadata" . | nindent 4 }}
     spec:
       hostNetwork: {{ .Values.hostNetwork }}
     {{- if .Values.hostNetwork }}
