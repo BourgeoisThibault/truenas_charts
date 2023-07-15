@@ -1,7 +1,7 @@
 name: frigate
 description: Frigate NVR
 annotations:
-  title: Frigate
+  title: frigate
 type: application
 version: 1.0.0
 apiVersion: v2
