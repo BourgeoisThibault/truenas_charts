@@ -1,0 +1,42 @@
+{
+    "charts": {
+        "plex": {
+            "app_readme": "<h1>Frigate</h1>\n<p>Frigate chart is a chart designed to deploy frigate in a TrueNAS SCALE kubernetes cluster.</p>",
+            "categories": [
+                "nvr"
+            ],
+            "description": "Frigate NVR",
+            "healthy": true,
+            "healthy_error": null,
+            "home": "https://plex.tv/",
+            "location": "/__w/charts/charts/charts/plex",
+            "latest_version": "1.0.0",
+            "latest_app_version": "0.12.1",
+            "latest_human_version": "0.12.1",
+            "last_update": "2023-07-15 09:53:31",
+            "name": "frigate",
+            "recommended": false,
+            "title": "Frigate",
+            "maintainers": [
+                {
+                    "name": "truenas",
+                    "url": "https://www.truenas.com/",
+                    "email": "dev@ixsystems.com"
+                }
+            ],
+            "tags": [
+                "nvr",
+                "camera",
+                "surveillance"
+            ],
+            "screenshots": [
+                "https://frigate.video/images/ui.jpg"
+            ],
+            "sources": [
+                "https://hub.docker.com/r/plexinc/pms-docker/",
+                "https://github.com/k8s-at-home/charts/tree/master/charts/plex"
+            ],
+            "icon_url": "https://repository-images.githubusercontent.com/167694194/7e73b000-3ab3-11eb-9a3a-bb923650172b"
+        }
+    }
+}
