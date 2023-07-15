@@ -17,7 +17,8 @@ spec:
     {{- if .Values.hostNetwork }}
       dnsPolicy: ClusterFirstWithHostNet
     {{- end }}
-      hostname: {{ template "common.names.fullname" . }}
+#      hostname: {{ template "common.names.fullname" . }}
+      hostname: {{ .Chart.Name }}_mqtt
       {{- if hasKey .Values "global" }}
         {{- if hasKey .Values.global "ixChartContext" }}
           {{- if .Values.global.ixChartContext.addNvidiaRuntimeClass }}
