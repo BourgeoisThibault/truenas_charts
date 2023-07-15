@@ -1,6 +1,14 @@
 groups:
   - name: "Frigate Configuration"
-    description: "Configure frigate variables"
+    description: "Configure frigate deployment"
+  - name: "Networking"
+    description: "Configure networking for container"
+  - name: "Storage"
+    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "Resource Reservation"
+    description: "Specify resources to be allocated to workload"
+  - name: "Resource Limits"
+    description: "Set CPU/memory limits for Kubernetes Pod"
   - name: "Timezone"
     description: "Configure networking for container"
   - name: "Scaling/Upgrade Policy"
@@ -13,15 +21,15 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-FrigateServiceUI.port"
+      - "$variable-frigateServiceTCP.port"
     path: "/web"
 
 questions:
 
   # Port configuration
-  - variable: FrigateServiceUI
+  - variable: frigateServiceTCP
     label: "Configure Frigate TCP Service"
-    group: "Frigate Configuration"
+    group: "Networking"
     schema:
       type: dict
       attrs:
@@ -33,9 +41,24 @@ questions:
             max: 65535
             default: 10001
 
-  - variable: FRIGATEextraAppVolumeMounts
+  
+  - variable: frigateServiceRTMP
+    label: "Configure Frigate RTMP Service"
+    group: "Networking"
+    schema:
+      type: dict
+      attrs:
+        - variable: port
+          label: "Port to expose for Frigate RTMP"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 10002
+
+  - variable: extraAppVolumeMounts
     label: "Frigate Extra Host Path Volumes"
-    group: "Frigate Configuration"
+    group: "Storage"
     schema:
       type: list
       items:
@@ -51,7 +74,6 @@ questions:
                 schema:
                   type: path
                   required: true
-                  default: "/config/config.yml"
               - variable: hostPath
                 label: "Host Path"
                 description: "Host path"
@@ -66,7 +88,34 @@ questions:
                 schema:
                   type: boolean
                   default: false
+
   
+  
+  - variable: enableResourceLimits
+    label: "Enable Pod resource limits"
+    group: "Resource Limits"
+    schema:
+      type: boolean
+      default: false
+  - variable: cpuLimit
+    label: "CPU Limit"
+    description: "CPU resource limit allow  plain integer values with suffix m(milli) e.g 1000m, 100."
+    group: "Resource Limits"
+    schema:
+      type: string
+      show_if: [["enableResourceLimits", "=", true]]
+      valid_chars: "^\\d+(?:\\.\\d+(?!.*m$)|m?$)"
+      default: "4000m"
+  - variable: memLimit
+    label: "Memory Limit"
+    group: "Resource Limits"
+    description: "Memory limits is specified by number of bytes. Followed by quantity suffix like E,P,T,G,M,k and Ei,Pi,Ti,Mi,Gi,Ki can also be used. e.g 129e6, 129M,  128974848000m, 123Mi"
+    schema:
+      type: string
+      show_if: [["enableResourceLimits", "=", true]]
+      valid_chars: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
+      default: "8Gi"
+
   - variable: timezone
     label: "Frigate container timezone"
     group: "Timezone"

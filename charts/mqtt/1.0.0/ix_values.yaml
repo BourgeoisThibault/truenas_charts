@@ -1,9 +1,7 @@
-
-frigate:
-  image:
-    pullPolicy: IfNotPresent
-    repository: ghcr.io/blakeblackshear/frigate
-    tag: 0.12.1
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/blakeblackshear/frigate
+  tag: 0.12.1
 
 
 securityContext:

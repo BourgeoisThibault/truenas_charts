@@ -1,0 +1,19 @@
+name: frigate
+description: Frigate NVR
+annotations:
+  title: frigate
+type: application
+version: 1.0.0
+apiVersion: v2
+appVersion: 0.12.1
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: tibhome
+    url: https://www.tibhome.fr/
+    email: trash@tibhome.fr
+#home: https://plex.tv/
+icon: https://repository-images.githubusercontent.com/167694194/7e73b000-3ab3-11eb-9a3a-bb923650172b
+sources:
+  - https://github.com/blakeblackshear/frigate
+keywords:
+  - frigate

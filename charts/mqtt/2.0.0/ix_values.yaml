@@ -1,9 +1,8 @@
-
-frigate:
+mqtt:
   image:
     pullPolicy: IfNotPresent
-    repository: ghcr.io/blakeblackshear/frigate
-    tag: 0.12.1
+    repository: eclipse-mosquitto
+    tag: latest
 
 
 securityContext:
