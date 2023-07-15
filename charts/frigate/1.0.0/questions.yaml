@@ -60,7 +60,7 @@ questions:
     label: "Frigate Extra Host Path Volumes"
     group: "Storage"
     schema:
-      type: dict
+      type: list
       items:
         - variable: extraAppVolume
           label: "Frigate Host Path Volume"
