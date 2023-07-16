@@ -25,7 +25,7 @@ questions:
       type: dict
       attrs:
         - variable: configvolume1
-          label: Config file
+          label: Config file\nfff
           schema:
             type: dict
             attrs:
