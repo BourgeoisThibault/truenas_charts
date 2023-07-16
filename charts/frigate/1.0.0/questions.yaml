@@ -24,6 +24,7 @@ questions:
     schema:
       type: boolean
       default: true
+      hidden: true
   # Port configuration
   - variable: FrigateServiceUI
     label: "Configure Frigate TCP Service"
@@ -35,9 +36,8 @@ questions:
           label: "Port to expose for Frigate UI"
           schema:
             type: int
-            min: 1000
-            max: 65535
             default: 5000
+            hidden: true
 
   - variable: FRIGATEextraAppVolumeMounts
     label: "Frigate Extra Host Path Volumes"
