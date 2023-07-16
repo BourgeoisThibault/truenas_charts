@@ -25,7 +25,7 @@ questions:
       type: dict
       attrs:
         - variable: configvolume1
-          label: MAPPING Config file
+          label: ""
           schema:
             type: dict
             attrs:
@@ -42,7 +42,7 @@ questions:
                   type: hostpath
                   required: true
         - variable: configvolume2
-          label: MAPPING Storage directory
+          label: ""
           schema:
             type: dict
             attrs:
@@ -59,7 +59,7 @@ questions:
                   type: hostpath
                   required: true
         - variable: configvolume3
-          label: MAPPING shm disk
+          label: ""
           schema:
             type: dict
             attrs:
