@@ -1,1 +1,3 @@
-# Application
+# Frigate
+
+NVR for camera detection.
