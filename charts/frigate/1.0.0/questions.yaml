@@ -33,20 +33,19 @@ questions:
       type: dict
       attrs:
         - variable: configvolume1
-          label: Config file
+          label: MAPPING Config file
           schema:
             type: dict
             attrs:
               - variable: mountPath
-                label: frigate Data Mount Path
-                description: "Add an extra host path volume for frigate application"
+                label: Config file in container
                 schema:
                   type: path
                   hidden: false
                   editable: false
                   default: /config/config.yml
               - variable: hostPath
-                label: Host Path for frigate Data Volume
+                label: Host Path for config file
                 schema:
                   type: hostpath
                   required: true
@@ -57,7 +56,6 @@ questions:
             attrs:
               - variable: mountPath
                 label: frigate Data Mount Path
-                description: "Add an extra host path volume for frigate application"
                 schema:
                   type: path
                   hidden: false
