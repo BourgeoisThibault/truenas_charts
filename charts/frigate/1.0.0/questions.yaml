@@ -33,6 +33,10 @@ questions:
     schema:
       type: dict
       attrs:
+        - variable: info
+          schema:
+            type: string
+            default: "fergeger g erg e"
         - variable: port
           label: "Port to expose for Frigate UI"
           schema:
