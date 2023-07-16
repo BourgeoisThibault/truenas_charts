@@ -59,7 +59,25 @@ questions:
                   editable: false
                   default: /config/config.yml
               - variable: hostPath
-                label: Host Path for frigate Data Volume (/config/config.yml)
+                label: Host Path for frigate Data Volume
+                schema:
+                  type: hostpath
+                  required: true
+        - variable: extraAppVolume2
+          label: frigate Data Volume
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: frigate Data Mount Path
+                description: "Add an extra host path volume for frigate application"
+                schema:
+                  type: path
+                  hidden: false
+                  editable: false
+                  default: /config/config.yml
+              - variable: hostPath
+                label: Host Path for frigate Data Volume
                 schema:
                   type: hostpath
                   required: true
