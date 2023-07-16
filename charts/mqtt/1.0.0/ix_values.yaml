@@ -2,7 +2,7 @@ mqtt:
   image:
     pullPolicy: IfNotPresent
     repository: eclipse-mosquitto
-    tag: 2.0.15
+    tag: latest
   port: 1883
 
 
