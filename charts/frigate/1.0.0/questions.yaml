@@ -32,7 +32,7 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: configvolume
+        - variable: configvolume1
           label: frigate Data Volume
           schema:
             type: dict
@@ -50,7 +50,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-        - variable: configvolume
+        - variable: configvolume2
           label: frigate Data Volume
           schema:
             type: dict
