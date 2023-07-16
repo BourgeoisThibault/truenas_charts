@@ -25,6 +25,21 @@ questions:
       type: boolean
       default: true
 
+  - variable: MqttServiceRTMP
+    label: "Configure MQTT RTMP Service"
+    group: "MQTT Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: port
+          label: "Port to expose for MQTT RTMP"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 10002
+
+
   - variable: MQTTextraAppVolumeMounts
     label: "MQTT Extra Host Path Volumes"
     group: "MQTT Configuration"
