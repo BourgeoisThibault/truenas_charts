@@ -25,7 +25,7 @@ questions:
       type: boolean
       default: true
 
-  - variable: MqttServiceRTMP
+  - variable: MqttServiceRtmp
     label: "Configure MQTT RTMP Service"
     group: "MQTT Configuration"
     schema:
