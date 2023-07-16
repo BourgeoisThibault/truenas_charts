@@ -20,7 +20,7 @@ questions:
 
   - variable: hostNetwork
     label: "Configure Host Network"
-    group: "MQTT Configuration"
+    group: "Frigate Configuration"
     schema:
       type: boolean
       default: true
