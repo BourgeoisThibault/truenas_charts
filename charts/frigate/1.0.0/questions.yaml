@@ -25,7 +25,7 @@ questions:
       type: dict
       attrs:
         - variable: configvolume1
-          label: ""
+          label: MAPPING Config file
           schema:
             type: dict
             attrs:
@@ -33,7 +33,7 @@ questions:
                 label: Config file path in container
                 schema:
                   type: path
-                  hidden: false
+                  hidden: true
                   editable: false
                   default: /config/config.yml
               - variable: hostPath
@@ -42,7 +42,7 @@ questions:
                   type: hostpath
                   required: true
         - variable: configvolume2
-          label: ""
+          label: MAPPING Storage directory
           schema:
             type: dict
             attrs:
@@ -50,7 +50,7 @@ questions:
                 label: Storage path in container
                 schema:
                   type: path
-                  hidden: false
+                  hidden: true
                   editable: false
                   default: /media/frigate
               - variable: hostPath
@@ -59,7 +59,7 @@ questions:
                   type: hostpath
                   required: true
         - variable: configvolume3
-          label: ""
+          label: MAPPING shm disk
           schema:
             type: dict
             attrs:
@@ -67,7 +67,7 @@ questions:
                 label: SHM path in container
                 schema:
                   type: path
-                  hidden: false
+                  hidden: true
                   editable: false
                   default: /dev/shm
               - variable: hostPath
