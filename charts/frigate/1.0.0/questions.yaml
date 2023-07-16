@@ -91,6 +91,27 @@ questions:
                   required: true
                   $ref:
                     - "validations/lockedHostPath"
+        - variable: extraAppVolume
+          label: "Frigate Host Path Volume"
+          description: "Add an extra host path volume for frigate application"
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: "Mount Path in Pod"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/config/config.yml"
+              - variable: hostPath
+                label: "Host Path"
+                description: "Host path"
+                schema:
+                  type: hostpath
+                  required: true
+                  $ref:
+                    - "validations/lockedHostPath"
   
   - variable: timezone
     label: "Frigate container timezone"
