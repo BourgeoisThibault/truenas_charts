@@ -28,6 +28,7 @@ questions:
   # Port configuration
   - variable: FrigateServiceUI
     label: "Configure Frigate TCP Service"
+    description: "regergr ger geer ergerge"
     group: "Frigate Configuration"
     schema:
       type: dict
@@ -58,6 +59,24 @@ questions:
                   hidden: false
                   editable: false
                   default: /config/config.yml
+              - variable: hostPath
+                label: Host Path for frigate Data Volume
+                schema:
+                  type: hostpath
+                  required: true
+        - variable: configvolume
+          label: frigate Data Volume
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: frigate Data Mount Path
+                description: "Add an extra host path volume for frigate application"
+                schema:
+                  type: path
+                  hidden: false
+                  editable: false
+                  default: /media/frigate
               - variable: hostPath
                 label: Host Path for frigate Data Volume
                 schema:
