@@ -1,6 +1,6 @@
-{{ $svc := .Values.FrigateServiceUI }}
+{{ $svc := .Values.MqttServiceRTMP }}
 {{ $ports := list }}
-{{ $ports = mustAppend $ports (dict "name" "mainfrigate" "port" $svc.port "nodePort" $svc.port "targetPort" "mainfrigate") }}
+{{ $ports = mustAppend $ports (dict "name" "MqttServiceRTMP" "port" $svc.port "nodePort" $svc.port "targetPort" "MqttServiceRTMP") }}
 {{ $params := . }}
 {{ $_ := set $params "commonService" (dict "ports" $ports ) }}
 {{ if .Values.hostNetwork }}
