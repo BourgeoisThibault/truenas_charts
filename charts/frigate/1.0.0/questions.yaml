@@ -13,7 +13,7 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-FrigateServiceUI.port"
+      - "$variable-frigate.port"
     path: "/web"
 
 questions:
