@@ -41,6 +41,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
+                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/frigate2/config.yml
         - variable: configvolume2
           label: Storage directory
           schema:
@@ -58,6 +59,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
+                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/frigate2/storage
         - variable: configvolume3
           label: Shm disk
           schema:
