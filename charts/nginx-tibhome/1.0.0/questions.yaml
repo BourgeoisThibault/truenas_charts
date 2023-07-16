@@ -68,6 +68,24 @@ questions:
                   type: hostpath
                   required: true
                   default: /mnt/SSD_POOL/FILES/DOCKER_APP/nginx-tibhome/website
+        - variable: configvolume4
+          label: Config directory
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: Config directory path in container
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: /etc/letsencrypt
+              - variable: hostPath
+                label: Host Path for config directory
+                schema:
+                  type: hostpath
+                  required: true
+                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/nginx-tibhome/letsencrypt
 
   - variable: hostNetwork
     label: "Configure Host Network"
