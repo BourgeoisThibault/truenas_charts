@@ -58,19 +58,11 @@ questions:
                   hidden: true
                   editable: false
                   default: /config/config.yml
-              - variable: hostPathEnabled
-                label: Enable Host Path for frigate Data Volume
+              - variable: hostPath
+                label: Host Path for frigate Data Volume
                 schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: hostPath
-                      label: Host Path for frigate Data Volume
-                      schema:
-                        type: hostpath
-                        required: true
-                        immutable: true
+                  type: hostpath
+                  required: true
 
   # - variable: FRIGATEextraAppVolumeMounts
   #   label: "Frigate Extra Host Path Volumes"
