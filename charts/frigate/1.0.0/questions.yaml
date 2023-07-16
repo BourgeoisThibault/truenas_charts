@@ -14,7 +14,7 @@ portals:
       - "$node_ip"
     ports:
       - "$variable-frigate.port"
-    path: "/web"
+    path: "/"
 
 questions:
 
@@ -59,7 +59,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/frigate2/storage
+                  default: /mnt/NVME_POOL/FRIGATE_STORAGE
         - variable: configvolume3
           label: Shm disk
           schema:
