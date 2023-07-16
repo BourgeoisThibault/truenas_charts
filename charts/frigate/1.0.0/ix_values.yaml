@@ -4,7 +4,7 @@ frigate:
     pullPolicy: IfNotPresent
     repository: ghcr.io/blakeblackshear/frigate
     tag: 0.12.1
-
+  port: 5000
 
 securityContext:
   container:

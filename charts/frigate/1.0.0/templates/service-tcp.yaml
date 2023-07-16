@@ -6,8 +6,4 @@
 {{ if .Values.hostNetwork }}
 {{ $_ := set $params.commonService "nameSuffix" "tcp-cluster-ip" }}
 {{ $_1 := set $params.commonService "type" "ClusterIP" }}
-{{ else }}
-{{ $_ := set $params.commonService "nameSuffix" "tcp" }}
-{{ $_1 := set $params.commonService "type" "NodePort" }}
-{{ end }}
 {{ include "common.classes.service" $params }}
