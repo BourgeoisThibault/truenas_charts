@@ -28,7 +28,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
               {{ end }}
             {{ end }}
           ports:
-          - name: nginxserviceport80
+          - name: nginxport80
             protocol: TCP
             containerPort: {{ .Values.nginx.port80 }}
           {{- if .Values.hostNetwork }}
@@ -36,7 +36,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           {{- else }}
             hostPort: null
           {{- end }}
-          - name: nginxserviceport443
+          - name: nginxport443
             protocol: TCP
             containerPort: {{ .Values.nginx.port443 }}
           {{- if .Values.hostNetwork }}

@@ -1,7 +1,7 @@
 {{ $svc := .Values.nginx }}
 {{ $ports := list }}
-{{ $ports = mustAppend $ports (dict "name" "nginxserviceport80" "port" $svc.port80 "nodePort" $svc.port80 "targetPort" "nginxserviceport80") }}
-{{ $ports = mustAppend $ports (dict "name" "nginxserviceport443" "port" $svc.port443 "nodePort" $svc.port443 "targetPort" "nginxserviceport443") }}
+{{ $ports = mustAppend $ports (dict "name" "nginxport80" "port" $svc.port80 "nodePort" $svc.port80 "targetPort" "nginxport80") }}
+{{ $ports = mustAppend $ports (dict "name" "nginxport443" "port" $svc.port443 "nodePort" $svc.port443 "targetPort" "nginxport443") }}
 {{ $params := . }}
 {{ $_ := set $params "commonService" (dict "ports" $ports ) }}
 {{ $_ := set $params.commonService "nameSuffix" "tcp-cluster-ip" }}
