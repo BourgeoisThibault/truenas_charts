@@ -1,4 +1,4 @@
-# Frigate helm chart
+# Helm chart
 
 ## Configuration
 

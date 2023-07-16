@@ -1,7 +1,7 @@
 {
     "charts": {
         "frigate": {
-            "app_readme": "<h1>Frigate</h1>\n<p>Frigate chart is a chart designed to deploy frigate in a TrueNAS SCALE kubernetes cluster.</p>",
+            "app_readme": "<h1>Frigate</h1>",
             "categories": [
                 "nvr"
             ],
@@ -36,15 +36,15 @@
             "icon_url": "https://repository-images.githubusercontent.com/167694194/7e73b000-3ab3-11eb-9a3a-bb923650172b"
         },
         "mqtt": {
-            "app_readme": "<h1>Frigate</h1>\n<p>Frigate chart is a chart designed to deploy frigate in a TrueNAS SCALE kubernetes cluster.</p>",
+            "app_readme": "<h1>MQTT</h1>",
             "categories": [
-                "nvr"
+                "mqtt"
             ],
-            "description": "Frigate NVR",
+            "description": "MQTT broker",
             "healthy": true,
             "healthy_error": null,
             "latest_version": "1.0.0",
-            "latest_app_version": "latest",
+            "latest_app_version": "2.0.15",
             "latest_human_version": "latest",
             "last_update": "2023-07-15 20:00:00",
             "name": "mqtt",
@@ -58,17 +58,17 @@
                 }
             ],
             "tags": [
-                "nvr",
-                "camera",
-                "surveillance"
+                "mqtt",
+                "broker",
+                "queue"
             ],
             "screenshots": [
-                "https://frigate.video/images/ui.jpg"
+                "https://www.motionsquare.fr/wp-content/uploads/2022/09/mqtt-logo-300x257.png"
             ],
             "sources": [
-                "https://github.com/blakeblackshear/frigate"
+                "https://github.com/eclipse/mosquitto"
             ],
-            "icon_url": "https://repository-images.githubusercontent.com/167694194/7e73b000-3ab3-11eb-9a3a-bb923650172b"
+            "icon_url": "https://www.motionsquare.fr/wp-content/uploads/2022/09/mqtt-logo-300x257.png"
         }
     }
 }
