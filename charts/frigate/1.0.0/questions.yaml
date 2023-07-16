@@ -55,11 +55,11 @@ questions:
                 description: "Add an extra host path volume for frigate application"
                 schema:
                   type: path
-                  hidden: true
+                  hidden: false
                   editable: false
                   default: /config/config.yml
               - variable: hostPath
-                label: Host Path for frigate Data Volume
+                label: Host Path for frigate Data Volume (/config/config.yml)
                 schema:
                   type: hostpath
                   required: true
