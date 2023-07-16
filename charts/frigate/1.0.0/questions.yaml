@@ -41,7 +41,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-                  default: {{ .Values.frigate.port }}
+                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/frigate2/config.yml
         - variable: configvolume2
           label: Storage directory
           schema:
