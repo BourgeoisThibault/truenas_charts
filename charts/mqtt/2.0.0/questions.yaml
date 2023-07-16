@@ -18,6 +18,13 @@ portals:
 
 questions:
 
+  - variable: hostNetwork
+    label: "Configure Host Network"
+    group: "Networking"
+    schema:
+      type: boolean
+      default: true
+
   - variable: MQTTextraAppVolumeMounts
     label: "MQTT Extra Host Path Volumes"
     group: "MQTT Configuration"
