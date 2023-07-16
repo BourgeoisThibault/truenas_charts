@@ -18,14 +18,6 @@ portals:
 
 questions:
 
-  - variable: hostNetwork
-    label: "Configure Host Network"
-    group: "Frigate Configuration"
-    schema:
-      type: boolean
-      default: true
-      hidden: true
-
   - variable: FRIGATEextraAppVolumeMounts
     label: ""
     group: "Frigate Configuration"
@@ -38,7 +30,7 @@ questions:
             type: dict
             attrs:
               - variable: mountPath
-                label: Config file in container
+                label: Config file path in container
                 schema:
                   type: path
                   hidden: false
@@ -50,41 +42,48 @@ questions:
                   type: hostpath
                   required: true
         - variable: configvolume2
-          label: frigate Data Volume
+          label: MAPPING Storage directory
           schema:
             type: dict
             attrs:
               - variable: mountPath
-                label: frigate Data Mount Path
+                label: Storage path in container
                 schema:
                   type: path
                   hidden: false
                   editable: false
                   default: /media/frigate
               - variable: hostPath
-                label: Host Path for frigate Data Volume
+                label: Host Path for storage directory
                 schema:
                   type: hostpath
                   required: true
         - variable: configvolume3
-          label: frigate Data Volume
+          label: MAPPING shm disk
           schema:
             type: dict
             attrs:
               - variable: mountPath
-                label: frigate Data Mount Path
-                description: "Add an extra host path volume for frigate application"
+                label: SHM path in container
                 schema:
                   type: path
                   hidden: false
                   editable: false
                   default: /dev/shm
               - variable: hostPath
-                label: Host Path for frigate Data Volume
+                label: Host Path for SHM disk
                 schema:
                   type: hostpath
                   required: true
 
+  - variable: hostNetwork
+    label: "Configure Host Network"
+    group: "Frigate Configuration"
+    schema:
+      type: boolean
+      default: true
+      hidden: true
+  
   - variable: timezone
     label: "Frigate container timezone"
     group: "Timezone"
