@@ -27,13 +27,13 @@ questions:
       hidden: true
 
   - variable: FRIGATEextraAppVolumeMounts
-    label: "Frigate Extra Host Path Volumes"
+    label: ""
     group: "Frigate Configuration"
     schema:
       type: dict
       attrs:
         - variable: configvolume1
-          label: frigate Data Volume
+          label: Config file
           schema:
             type: dict
             attrs:
@@ -68,52 +68,25 @@ questions:
                 schema:
                   type: hostpath
                   required: true
+        - variable: configvolume3
+          label: frigate Data Volume
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: frigate Data Mount Path
+                description: "Add an extra host path volume for frigate application"
+                schema:
+                  type: path
+                  hidden: false
+                  editable: false
+                  default: /dev/shm
+              - variable: hostPath
+                label: Host Path for frigate Data Volume
+                schema:
+                  type: hostpath
+                  required: true
 
-  # - variable: FRIGATEextraAppVolumeMounts
-  #   label: "Frigate Extra Host Path Volumes"
-  #   group: "Frigate Configuration"
-  #   schema:
-  #     type: list
-  #     items:
-  #       - variable: extraAppVolume
-  #         label: "Frigate Host Path Volume"
-  #         description: "Add an extra host path volume for frigate application"
-  #         schema:
-  #           type: dict
-  #           attrs:
-  #             - variable: mountPath
-  #               label: "Mount Path in Pod"
-  #               description: "Path where the volume will be mounted inside the pod"
-  #               schema:
-  #                 type: path
-  #                 required: true
-  #                 default: "/config/config.yml"
-  #             - variable: hostPath
-  #               label: "Host Path"
-  #               description: "Host path"
-  #               schema:
-  #                 type: hostpath
-  #                 required: true
-  #       - variable: extraAppVolume
-  #         label: "Frigate Host Path Volume"
-  #         description: "Add an extra host path volume for frigate application"
-  #         schema:
-  #           type: dict
-  #           attrs:
-  #             - variable: mountPath
-  #               label: "Mount Path in Pod"
-  #               description: "Path where the volume will be mounted inside the pod"
-  #               schema:
-  #                 type: path
-  #                 required: true
-  #                 default: "/config/config.yml"
-  #             - variable: hostPath
-  #               label: "Host Path"
-  #               description: "Host path"
-  #               schema:
-  #                 type: hostpath
-  #                 required: true
-  
   - variable: timezone
     label: "Frigate container timezone"
     group: "Timezone"
