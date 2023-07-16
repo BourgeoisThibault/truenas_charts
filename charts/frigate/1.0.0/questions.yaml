@@ -43,9 +43,9 @@ questions:
     label: "Frigate Extra Host Path Volumes"
     group: "Frigate Configuration"
     schema:
-      type: list
+      type: dict
       attrs:
-        - variable: extraAppVolume
+        - variable: configvolume
           label: frigate Data Volume
           schema:
             type: dict
