@@ -1,6 +1,6 @@
-{{ $svc := .Values.MqttServiceRtmp }}
+{{ $svc := .Values.mqttServiceRtmp }}
 {{ $ports := list }}
-{{ $ports = mustAppend $ports (dict "name" "MqttServiceRtmp" "port" $svc.port "nodePort" $svc.port "targetPort" "MqttServiceRtmp") }}
+{{ $ports = mustAppend $ports (dict "name" "mqttServiceRtmp" "port" $svc.port "nodePort" $svc.port "targetPort" "mqttServiceRtmp") }}
 {{ $params := . }}
 {{ $_ := set $params "commonService" (dict "ports" $ports ) }}
 {{ if .Values.hostNetwork }}
