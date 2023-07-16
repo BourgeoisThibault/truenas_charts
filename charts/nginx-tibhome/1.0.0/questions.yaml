@@ -25,13 +25,49 @@ questions:
                   type: path
                   hidden: true
                   editable: false
-                  default: /etc/nginx
+                  default: /etc/nginx/nginx.conf
               - variable: hostPath
                 label: Host Path for config directory
                 schema:
                   type: hostpath
                   required: true
-                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/mqtt/config
+                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/nginx-tibhome/nginx.conf
+        - variable: configvolume2
+          label: Config directory
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: Config directory path in container
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: /etc/nginx/configuration
+              - variable: hostPath
+                label: Host Path for config directory
+                schema:
+                  type: hostpath
+                  required: true
+                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/nginx-tibhome/configuration
+        - variable: configvolume3
+          label: Config directory
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: Config directory path in container
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: /etc/nginx/website
+              - variable: hostPath
+                label: Host Path for config directory
+                schema:
+                  type: hostpath
+                  required: true
+                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/nginx-tibhome/website
 
   - variable: hostNetwork
     label: "Configure Host Network"
