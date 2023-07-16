@@ -3,6 +3,7 @@ mqtt:
     pullPolicy: IfNotPresent
     repository: eclipse-mosquitto
     tag: latest
+  port: 1883
 
 
 securityContext:

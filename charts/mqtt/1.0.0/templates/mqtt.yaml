@@ -28,11 +28,11 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
               {{ end }}
             {{ end }}
           ports:
-          - name: mainfrigate
+          - name: mqttserviceport
             protocol: TCP
-            containerPort: 1883
+            containerPort: {{ .Values.mqtt.port }}
           {{- if .Values.hostNetwork }}
-            hostPort: {{ .Values.mqttservicertmp.port }}
+            hostPort: {{ .Values.mqtt.port }}
           {{- else }}
             hostPort: null
           {{- end }}
@@ -50,7 +50,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
           readinessProbe:
             tcpSocket:
-              port: 1883
+              port: {{ .Values.mqtt.port }}
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
@@ -58,7 +58,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             successThreshold: 2
           livenessProbe:
             tcpSocket:
-              port: 1883
+              port: {{ .Values.mqtt.port }}
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
@@ -66,7 +66,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             successThreshold: 1
           startupProbe:
             tcpSocket:
-              port: 1883
+              port: {{ .Values.mqtt.port }}
             initialDelaySeconds: 10
             periodSeconds: 5
             timeoutSeconds: 2

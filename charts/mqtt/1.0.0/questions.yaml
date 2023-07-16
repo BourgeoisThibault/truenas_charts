@@ -6,17 +6,68 @@ groups:
   - name: "Scaling/Upgrade Policy"
     description: "Configure how pods are replaced when configuration is upgraded"
 
-portals:
-  web_portal:
-    protocols:
-      - "http"
-    host:
-      - "$node_ip"
-    ports:
-      - "$variable-FrigateServiceUI.port"
-    path: "/web"
-
 questions:
+
+  - variable: MQTTextraAppVolumeMounts
+    label: "MQTT Extra Host Path Volumes"
+    group: "MQTT Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: configvolume1
+          label: Config directory
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: Config directory path in container
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: /mosquitto/config
+              - variable: hostPath
+                label: Host Path for config directory
+                schema:
+                  type: hostpath
+                  required: true
+                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/mqtt/config
+        - variable: configvolume2
+          label: Data directory
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: Data directory path in container
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: /mosquitto/data
+              - variable: hostPath
+                label: Host Path for data directory
+                schema:
+                  type: hostpath
+                  required: true
+                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/mqtt/data
+        - variable: configvolume3
+          label: Log directory
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: Log directory path in container
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: /mosquitto/log
+              - variable: hostPath
+                label: Host Path for log directory
+                schema:
+                  type: hostpath
+                  required: true
+                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/mqtt/log
 
   - variable: hostNetwork
     label: "Configure Host Network"
@@ -24,55 +75,6 @@ questions:
     schema:
       type: boolean
       default: true
-
-  - variable: mqttservicertmp
-    label: "Configure MQTT RTMP Service"
-    group: "MQTT Configuration"
-    schema:
-      type: dict
-      attrs:
-        - variable: port
-          label: "Port to expose for MQTT RTMP"
-          schema:
-            type: int
-            min: 1000
-            max: 65535
-            default: 1883
-
-
-  - variable: MQTTextraAppVolumeMounts
-    label: "MQTT Extra Host Path Volumes"
-    group: "MQTT Configuration"
-    schema:
-      type: list
-      items:
-        - variable: extraAppVolume
-          label: "MQTT Host Path Volume"
-          description: "Add an extra host path volume for frigate application"
-          schema:
-            type: dict
-            attrs:
-              - variable: mountPath
-                label: "Mount Path in Pod"
-                description: "Path where the volume will be mounted inside the pod"
-                schema:
-                  type: path
-                  required: true
-                  default: "/mosquitto"
-              - variable: hostPath
-                label: "Host Path"
-                description: "Host path"
-                schema:
-                  type: hostpath
-                  required: true
-                  $ref:
-                    - "validations/lockedHostPath"
-              - variable: readOnly
-                label: "Read Only"
-                description: "Mount hostpath in read-only mode"
-                schema:
-                  type: boolean
-                  default: false
 
   - variable: timezone
     label: "Frigate container timezone"
