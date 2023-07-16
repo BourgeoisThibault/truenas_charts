@@ -25,7 +25,7 @@ questions:
       type: dict
       attrs:
         - variable: configvolume1
-          #label: Config file
+          label: Config file
           schema:
             type: dict
             attrs:
@@ -41,7 +41,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/frigate2/config.yml
+                  default: "$variable-frigate.port"
         - variable: configvolume2
           label: Storage directory
           schema:
