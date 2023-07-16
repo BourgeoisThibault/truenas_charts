@@ -41,7 +41,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-                  default: "$variable-frigate.port"
+                  default: $variable-frigate.port
         - variable: configvolume2
           label: Storage directory
           schema:
