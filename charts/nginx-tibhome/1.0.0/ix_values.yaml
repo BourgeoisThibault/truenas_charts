@@ -1,8 +1,8 @@
 nginx:
   image:
     pullPolicy: IfNotPresent
-    repository: nginx
-    tag: 1.25.1
+    repository: nginx-tibhome
+    tag: local
   port80: 80
   port443: 443
 
