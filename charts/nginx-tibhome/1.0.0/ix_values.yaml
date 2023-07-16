@@ -1,0 +1,15 @@
+nginx:
+  image:
+    pullPolicy: IfNotPresent
+    repository: nginx
+    tag: 1.25.1
+  port80: 80
+  port443: 443
+
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

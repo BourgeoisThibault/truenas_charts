@@ -1,0 +1,65 @@
+groups:
+  - name: "NGINX Configuration"
+    description: "Configure nginx variables"
+  - name: "Timezone"
+    description: "Configure networking for container"
+  - name: "Scaling/Upgrade Policy"
+    description: "Configure how pods are replaced when configuration is upgraded"
+
+questions:
+
+  - variable: NGINXextraAppVolumeMounts
+    label: "NGINX Extra Host Path Volumes"
+    group: "NGINX Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: configvolume1
+          label: Config directory
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: Config directory path in container
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: /etc/nginx
+              - variable: hostPath
+                label: Host Path for config directory
+                schema:
+                  type: hostpath
+                  required: true
+                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/mqtt/config
+
+  - variable: hostNetwork
+    label: "Configure Host Network"
+    group: "NGINX Configuration"
+    schema:
+      type: boolean
+      default: true
+      hidden: true
+
+  - variable: timezone
+    label: "NGINX container timezone"
+    group: "Timezone"
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"
+
+  # Update strategy
+  - variable: updateStrategy
+    description: "Upgrade Policy"
+    label: "Update Strategy"
+    group: "Scaling/Upgrade Policy"
+    schema:
+      type: string
+      default: "Recreate"
+      enum:
+        - value: "RollingUpdate"
+          description: "Create new pods and then kill old ones"
+        - value: "Recreate"
+          description: "Kill existing pods before creating new ones"

@@ -69,6 +69,39 @@
                 "https://github.com/eclipse/mosquitto"
             ],
             "icon_url": "https://www.motionsquare.fr/wp-content/uploads/2022/09/mqtt-logo-300x257.png"
+        },
+        "nginx-tibhome": {
+            "app_readme": "<h1>Nginx-tibhome</h1>",
+            "categories": [
+                "nginx"
+            ],
+            "description": "Nginx reverse proxy",
+            "healthy": true,
+            "healthy_error": null,
+            "latest_version": "1.0.0",
+            "latest_app_version": "1.25.1",
+            "latest_human_version": "1.25.1",
+            "last_update": "2023-07-15 20:00:00",
+            "name": "nginx-tibhome",
+            "recommended": false,
+            "title": "nginx-tibhome",
+            "maintainers": [
+                {
+                    "name": "tibhome",
+                    "url": "https://www.tibhome.fr/",
+                    "email": "trash@tibhome.fr"
+                }
+            ],
+            "tags": [
+                "nginx"
+            ],
+            "screenshots": [
+                "https://d1q6f0aelx0por.cloudfront.net/product-logos/library-nginx-logo.png"
+            ],
+            "sources": [
+                "https://hub.docker.com/_/nginx"
+            ],
+            "icon_url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/library-nginx-logo.png"
         }
     }
 }
