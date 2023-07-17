@@ -172,6 +172,39 @@
                 "https://github.com/truenas/charts/tree/master/community/vaultwarden"
             ],
             "icon_url": "https://raw.githubusercontent.com/dani-garcia/vaultwarden/main/src/static/images/vaultwarden-icon.png"
+        },
+        "authelia": {
+            "app_readme": "<h1>Home assistant</h1>",
+            "categories": [
+                "authelia"
+            ],
+            "description": "Home assistant server",
+            "healthy": true,
+            "healthy_error": null,
+            "latest_version": "1.0.0",
+            "latest_app_version": "4.37.5",
+            "latest_human_version": "4.37.5",
+            "last_update": "2023-07-15 20:00:00",
+            "name": "authelia",
+            "recommended": false,
+            "title": "authelia",
+            "maintainers": [
+                {
+                    "name": "tibhome",
+                    "url": "https://www.tibhome.fr/",
+                    "email": "trash@tibhome.fr"
+                }
+            ],
+            "tags": [
+                "authelia"
+            ],
+            "screenshots": [
+                "https://avatars.githubusercontent.com/u/59122411?s=280&v=4"
+            ],
+            "sources": [
+                "https://github.com/authelia/authelia"
+            ],
+            "icon_url": "https://avatars.githubusercontent.com/u/59122411?s=280&v=4"
         }
     }
 }

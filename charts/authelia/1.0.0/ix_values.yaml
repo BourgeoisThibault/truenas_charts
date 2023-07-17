@@ -1,0 +1,14 @@
+authelia:
+  image:
+    pullPolicy: IfNotPresent
+    repository: authelia/authelia
+    tag: 4.37.5
+  port: 9091
+
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

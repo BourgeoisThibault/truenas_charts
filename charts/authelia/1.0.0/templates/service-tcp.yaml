@@ -1,0 +1,8 @@
+{{ $svc := .Values.authelia }}
+{{ $ports := list }}
+{{ $ports = mustAppend $ports (dict "name" "autheliaserviceport" "port" $svc.port "nodePort" $svc.port "targetPort" "autheliaserviceport") }}
+{{ $params := . }}
+{{ $_ := set $params "commonService" (dict "ports" $ports ) }}
+{{ $_ := set $params.commonService "nameSuffix" "tcp-cluster-ip" }}
+{{ $_1 := set $params.commonService "type" "ClusterIP" }}
+{{ include "common.classes.service" $params }}
