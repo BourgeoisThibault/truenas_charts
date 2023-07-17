@@ -28,7 +28,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
               {{ end }}
             {{ end }}
           ports:
-          - name: autheliaserviceport
+          - name: autheliaport
             protocol: TCP
             containerPort: {{ .Values.authelia.port }}
           {{- if .Values.hostNetwork }}
