@@ -42,24 +42,24 @@ questions:
                   type: hostpath
                   required: true
                   default: /mnt/SSD_POOL/FILES/DOCKER_APP/homeassistant
-        - variable: configvolume2
-          label: Config directory
-          schema:
-            type: dict
-            attrs:
-              - variable: mountPath
-                label: Config directory path in container
-                schema:
-                  type: path
-                  hidden: true
-                  editable: false
-                  default: /dev/ttyUSB0
-              - variable: hostPath
-                label: Host Path for config directory
-                schema:
-                  type: hostpath
-                  required: true
-                  default: /dev/ttyUSB0
+        # - variable: configvolume2
+        #   label: Config directory
+        #   schema:
+        #     type: dict
+        #     attrs:
+        #       - variable: mountPath
+        #         label: Config directory path in container
+        #         schema:
+        #           type: path
+        #           hidden: true
+        #           editable: false
+        #           default: /dev/ttyUSB0
+        #       - variable: hostPath
+        #         label: Host Path for config directory
+        #         schema:
+        #           type: hostpath
+        #           required: true
+        #           default: /dev/ttyUSB0
 
   - variable: hostNetwork
     label: "Configure Host Network"
