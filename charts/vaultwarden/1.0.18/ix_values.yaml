@@ -29,8 +29,8 @@ vaultwardenStorage:
     type: hostPath
     datasetName: data
   pgData:
-    type: ixVolume
+    type: hostPath
     datasetName: pgData
   pgBackup:
-    type: ixVolume
+    type: hostPath
     datasetName: pgBackup
