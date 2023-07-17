@@ -86,6 +86,24 @@ questions:
                   type: hostpath
                   required: true
                   default: /mnt/SSD_POOL/CONFIGURATION/nginx/letsencrypt
+        - variable: configvolume5
+          label: Config directory
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: Config directory path in container
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: /etc/nginx/snippets
+              - variable: hostPath
+                label: Host Path for config directory
+                schema:
+                  type: hostpath
+                  required: true
+                  default: /mnt/SSD_POOL/CONFIGURATION/nginx/snippets
 
   - variable: hostNetwork
     label: "Configure Host Network"
