@@ -1,0 +1,18 @@
+name: home-assistant
+description: home-assistant server
+annotations:
+  title: home-assistant
+type: application
+version: 1.0.0
+apiVersion: v2
+appVersion: stable
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: tibhome
+    url: https://www.tibhome.fr/
+    email: trash@tibhome.fr
+icon: https://avatars.githubusercontent.com/u/13844975?s=200&v=4
+sources:
+  - https://github.com/home-assistant
+keywords:
+  - home-assistant

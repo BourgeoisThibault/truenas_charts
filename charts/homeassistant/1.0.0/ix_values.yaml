@@ -1,0 +1,14 @@
+homeassistant:
+  image:
+    pullPolicy: IfNotPresent
+    repository: ghcr.io/home-assistant/home-assistant
+    tag: stable
+  port: 8123
+
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

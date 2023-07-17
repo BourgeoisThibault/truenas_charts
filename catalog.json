@@ -102,6 +102,39 @@
                 "https://hub.docker.com/_/nginx"
             ],
             "icon_url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/library-nginx-logo.png"
+        },
+        "homeassistant": {
+            "app_readme": "<h1>Home assistant</h1>",
+            "categories": [
+                "home-assistant"
+            ],
+            "description": "Home assistant server",
+            "healthy": true,
+            "healthy_error": null,
+            "latest_version": "1.0.0",
+            "latest_app_version": "stable",
+            "latest_human_version": "stable",
+            "last_update": "2023-07-15 20:00:00",
+            "name": "home-assistant",
+            "recommended": false,
+            "title": "home-assistant",
+            "maintainers": [
+                {
+                    "name": "tibhome",
+                    "url": "https://www.tibhome.fr/",
+                    "email": "trash@tibhome.fr"
+                }
+            ],
+            "tags": [
+                "home-assistant"
+            ],
+            "screenshots": [
+                "https://raw.githubusercontent.com/home-assistant/core/master/docs/screenshots.png"
+            ],
+            "sources": [
+                "https://github.com/home-assistant"
+            ],
+            "icon_url": "https://avatars.githubusercontent.com/u/13844975?s=200&v=4"
         }
     }
 }
