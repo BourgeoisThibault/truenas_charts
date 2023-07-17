@@ -1,4 +1,4 @@
-name: nginx-tibhome
+name: portal
 description: nginx tibhome
 annotations:
   title: nginx

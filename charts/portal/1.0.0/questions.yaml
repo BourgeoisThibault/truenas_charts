@@ -31,7 +31,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/nginx-tibhome/nginx.conf
+                  default: /mnt/SSD_POOL/CONFIGURATION/nginx/nginx.conf
         - variable: configvolume2
           label: Config directory
           schema:
@@ -49,7 +49,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/nginx-tibhome/configuration
+                  default: /mnt/SSD_POOL/CONFIGURATION/nginx/configuration
         - variable: configvolume3
           label: Config directory
           schema:
@@ -67,7 +67,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/nginx-tibhome/website
+                  default: /mnt/SSD_POOL/CONFIGURATION/nginx/website
         - variable: configvolume4
           label: Config directory
           schema:
@@ -85,7 +85,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/nginx-tibhome/letsencrypt
+                  default: /mnt/SSD_POOL/CONFIGURATION/nginx/letsencrypt
 
   - variable: hostNetwork
     label: "Configure Host Network"

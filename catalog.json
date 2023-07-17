@@ -70,8 +70,8 @@
             ],
             "icon_url": "https://www.motionsquare.fr/wp-content/uploads/2022/09/mqtt-logo-300x257.png"
         },
-        "nginx-tibhome": {
-            "app_readme": "<h1>Nginx-tibhome</h1>",
+        "portal": {
+            "app_readme": "<h1>Portal</h1>",
             "categories": [
                 "nginx"
             ],
@@ -82,9 +82,9 @@
             "latest_app_version": "1.25.1",
             "latest_human_version": "1.25.1",
             "last_update": "2023-07-15 20:00:00",
-            "name": "nginx-tibhome",
+            "name": "portal",
             "recommended": false,
-            "title": "nginx-tibhome",
+            "title": "portal",
             "maintainers": [
                 {
                     "name": "tibhome",
@@ -135,6 +135,43 @@
                 "https://github.com/home-assistant"
             ],
             "icon_url": "https://avatars.githubusercontent.com/u/13844975?s=200&v=4"
+        },
+        "vaultwarden": {
+            "app_readme": "<h1>Vaultwarden</h1>",
+            "categories": [
+                "security"
+            ],
+            "description": "Alternative implementation of the Bitwarden server API written in Rust and compatible with upstream Bitwarden clients.",
+            "healthy": true,
+            "healthy_error": null,
+            "home": "https://github.com/dani-garcia/vaultwarden",
+            "location": "/__w/charts/charts/community/vaultwarden",
+            "latest_version": "1.0.18",
+            "latest_app_version": "1.29.0",
+            "latest_human_version": "1.29.0_1.0.18",
+            "last_update": "2023-07-15 09:53:31",
+            "name": "vaultwarden",
+            "recommended": false,
+            "title": "Vaultwarden",
+            "maintainers": [
+                {
+                    "name": "truenas",
+                    "url": "https://www.truenas.com/",
+                    "email": "dev@ixsystems.com"
+                }
+            ],
+            "tags": [
+                "password",
+                "manager"
+            ],
+            "screenshots": [
+                "https://blog.mukmuk.eu/wp-content/uploads/2021/08/Vaultwarden.jpg"
+            ],
+            "sources": [
+                "https://github.com/dani-garcia/vaultwarden",
+                "https://github.com/truenas/charts/tree/master/community/vaultwarden"
+            ],
+            "icon_url": "https://raw.githubusercontent.com/dani-garcia/vaultwarden/main/src/static/images/vaultwarden-icon.png"
         }
     }
 }

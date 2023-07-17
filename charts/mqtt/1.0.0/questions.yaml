@@ -25,49 +25,13 @@ questions:
                   type: path
                   hidden: true
                   editable: false
-                  default: /mosquitto/config
+                  default: /mosquitto
               - variable: hostPath
                 label: Host Path for config directory
                 schema:
                   type: hostpath
                   required: true
-                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/mqtt/config
-        - variable: configvolume2
-          label: Data directory
-          schema:
-            type: dict
-            attrs:
-              - variable: mountPath
-                label: Data directory path in container
-                schema:
-                  type: path
-                  hidden: true
-                  editable: false
-                  default: /mosquitto/data
-              - variable: hostPath
-                label: Host Path for data directory
-                schema:
-                  type: hostpath
-                  required: true
-                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/mqtt/data
-        - variable: configvolume3
-          label: Log directory
-          schema:
-            type: dict
-            attrs:
-              - variable: mountPath
-                label: Log directory path in container
-                schema:
-                  type: path
-                  hidden: true
-                  editable: false
-                  default: /mosquitto/log
-              - variable: hostPath
-                label: Host Path for log directory
-                schema:
-                  type: hostpath
-                  required: true
-                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/mqtt/log
+                  default: /mnt/SSD_POOL/CONFIGURATION/mqtt
 
   - variable: hostNetwork
     label: "Configure Host Network"

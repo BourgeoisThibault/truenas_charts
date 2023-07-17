@@ -19,7 +19,7 @@ portals:
 questions:
 
   - variable: FRIGATEextraAppVolumeMounts
-    label: "ddfdfdf"
+    label: "Define storage for frigate"
     group: "Frigate Configuration"
     schema:
       type: dict
@@ -41,7 +41,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-                  default: /mnt/SSD_POOL/FILES/DOCKER_APP/frigate/config.yml
+                  default: /mnt/SSD_POOL/CONFIGURATION/frigate/config.yml
         - variable: configvolume2
           label: Storage directory
           schema:
@@ -77,7 +77,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-                  default : /mnt/SSD_POOL/FRIGATE_SHM
+                  default : /mnt/SSD_POOL/TEMP/frigate_shm
 
   - variable: hostNetwork
     label: "Configure Host Network"
