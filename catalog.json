@@ -106,7 +106,7 @@
         "homeassistant": {
             "app_readme": "<h1>Home assistant</h1>",
             "categories": [
-                "home-assistant"
+                "homeassistant"
             ],
             "description": "Home assistant server",
             "healthy": true,
@@ -115,9 +115,9 @@
             "latest_app_version": "stable",
             "latest_human_version": "stable",
             "last_update": "2023-07-15 20:00:00",
-            "name": "home-assistant",
+            "name": "homeassistant",
             "recommended": false,
-            "title": "home-assistant",
+            "title": "homeassistant",
             "maintainers": [
                 {
                     "name": "tibhome",
@@ -126,7 +126,7 @@
                 }
             ],
             "tags": [
-                "home-assistant"
+                "homeassistant"
             ],
             "screenshots": [
                 "https://raw.githubusercontent.com/home-assistant/core/master/docs/screenshots.png"
