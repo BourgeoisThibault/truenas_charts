@@ -1,0 +1,90 @@
+groups:
+  - name: Vaultwarden Configuration
+    description: Configure Vaultwarden
+  - name: User and Group Configuration
+    description: Configure User and Group for Vaultwarden
+  - name: Network Configuration
+    description: Configure Network for Vaultwarden
+  - name: Storage Configuration
+    description: Configure Storage for Vaultwarden
+  - name: Resources Configuration
+    description: Configure Resources for Vaultwarden
+
+portals:
+  web_portal:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+    path: "$kubernetes-resource_configmap_portal_path"
+  admin_portal:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+    path: "$kubernetes-resource_configmap_portal_admin_path"
+
+questions:
+  - variable: vaultwardenConfig
+    label: ""
+    group: Vaultwarden Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: adminToken
+          label: Admin Token
+          description: Setting this, will enable the admin portal
+          schema:
+            type: string
+            private: true
+            default: ""
+
+  - variable: vaultwardenStorage
+    label: ""
+    group: Storage Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: data
+          label: Vaultwarden Data Storage
+          description: The path to store Vaultwarden attachments, icons, etc.
+          schema:
+            type: dict
+            attrs:
+              - variable: hostPath
+                label: Host Path
+                schema:
+                  type: hostpath
+                  immutable: true
+                  required: true
+                  default: /mnt/SSD_POOL/CONFIGURATION/vaultwarden/data
+        - variable: pgData
+          label: Vaultwarden Postgres Data Storage
+          description: The path to store Vaultwarden Postgres Data.
+          schema:
+            type: dict
+            attrs:
+              - variable: hostPath
+                label: Host Path
+                schema:
+                  type: hostpath
+                  immutable: true
+                  required: true
+                  default: /mnt/SSD_POOL/CONFIGURATION/vaultwarden/psql_data
+        - variable: pgBackup
+          label: Vaultwarden Postgres Backup Storage
+          description: The path to store Vaultwarden Postgres Backup.
+          schema:
+            type: dict
+            attrs:
+              - variable: hostPath
+                label: Host Path
+                schema:
+                  type: hostpath
+                  immutable: true
+                  required: true
+                  default: /mnt/SSD_POOL/CONFIGURATION/vaultwarden/psql_backup

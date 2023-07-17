@@ -16,7 +16,7 @@ vaultwardenNetwork:
   webPort: 30032
   wsEnabled: true
   wsPort: 30033
-  hostNetwork: false
+  hostNetwork: true
   certificateID: 0
   domain: ''
 
