@@ -17,6 +17,8 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}-ha
+          securityContext:
+            privileged: true
           image: "{{ .Values.homeassistant.image.repository }}:{{ .Values.homeassistant.image.tag }}"
           imagePullPolicy: {{ .Values.homeassistant.image.pullPolicy }}
           volumeMounts:
