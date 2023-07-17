@@ -3,7 +3,6 @@
 spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
   template: {{ include "common.deployment.pod.metadata" . | nindent 4 }}
     spec:
-      privileged: true
       hostNetwork: {{ .Values.hostNetwork }}
     {{- if .Values.hostNetwork }}
       dnsPolicy: ClusterFirstWithHostNet
