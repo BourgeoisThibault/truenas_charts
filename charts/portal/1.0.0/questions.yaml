@@ -6,6 +6,16 @@ groups:
   - name: "Scaling/Upgrade Policy"
     description: "Configure how pods are replaced when configuration is upgraded"
 
+portals:
+  web_portal:
+    protocols:
+      - "https"
+    host:
+      - "www.tibhome.fr"
+    ports:
+      - "443"
+    path: "/"
+
 questions:
 
   - variable: NGINXextraAppVolumeMounts
