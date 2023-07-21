@@ -1,7 +1,7 @@
 {{ $svc := .Values.frigate }}
 {{ $ports := list }}
 {{ $ports = mustAppend $ports (dict "name" "mainfrigate" "port" $svc.port "nodePort" $svc.port "targetPort" "mainfrigate") }}
-{{ $ports = mustAppend $ports (dict "name" "rtspfrigate" "port" $svc.port "nodePort" $svc.port "targetPort" "rtspfrigate") }}
+{{ $ports = mustAppend $ports (dict "name" "rtspfrigate" "port" $svc.portrtsp "nodePort" $svc.portrtsp "targetPort" "rtspfrigate") }}
 {{ $params := . }}
 {{ $_ := set $params "commonService" (dict "ports" $ports ) }}
 {{ $_ := set $params.commonService "nameSuffix" "tcp-cluster-ip" }}
